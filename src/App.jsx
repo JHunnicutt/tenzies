@@ -3,19 +3,29 @@ import Die from './Die'
 
 
 const App = () => {
+   const [dice, setDice] = React.useState(allNewDice)
+
+   function allNewDice() {
+      const newDice = []
+      for(let i = 0; i < 10; i++) {
+         newDice.push(Math.ceil(Math.random() * 6))
+      }
+      return newDice
+   }
+
+   const diceElements = dice.map((die, index) => {
+      return (
+         <Die
+            key={index}
+            value={die}
+         />
+      )
+   })
+
    return (
     <main>
       <div className="dice">
-         <Die value="1" />
-         <Die value="1" />
-         <Die value="1" />
-         <Die value="1" />
-         <Die value="1" />
-         <Die value="1" />
-         <Die value="1" />
-         <Die value="1" />
-         <Die value="1" />
-         <Die value="1" />
+         {diceElements}
       </div>
     </main>
    )
