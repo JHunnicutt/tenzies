@@ -31,7 +31,7 @@ const App = () => {
       <div className="dice">
          {diceElements}
       </div>
-      <button onClick={rollDice}>
+      <button class="roll-btn" onClick={rollDice}>
          Roll
       </button>
     </main>
