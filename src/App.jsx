@@ -10,7 +10,7 @@ const App = () => {
       for(let i = 0; i < 10; i++) {
          newDice.push({
             value: Math.ceil(Math.random() * 6),
-            isHeld: false,
+            isHeld: true,
             id: nanoid()
          })
       }
@@ -25,6 +25,7 @@ const App = () => {
          <Die
             key={die.id}
             value={die.value}
+            isHeld={die.isHeld}
          />
       ))
 
