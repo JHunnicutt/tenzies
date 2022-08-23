@@ -50,6 +50,8 @@ const App = () => {
 
    return (
     <main>
+      <h1>Tenzies</h1>
+      <p>Roll until all the dice are the same. Click each die to hold it at its current value between rolls.</p>
       <div className="dice">
          {diceElements}
       </div>
