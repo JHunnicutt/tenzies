@@ -22,7 +22,13 @@ const App = () => {
    }
 
    function holdDice(id) {
-      console.log(id)
+      setDice(prevState => {
+         return prevState.map(die => {
+            return die.id === id ?
+            {...die, isHeld: !die.isHeld} :
+            die
+         })
+      })
    }
 
    const diceElements = dice.map(die => (
