@@ -64,11 +64,14 @@ const App = () => {
          />
       ))
 
+   const introText = `Roll until all the dice are the same. Click each die to hold it at its current value between rolls.`
+   const winText = `Congratulations! Click the New Game button to play again!`
+
    return (
     <main>
       {tenzies && <Confetti />}
       <h1>{tenzies ? 'You Won!' : 'Tenzies'}</h1>
-      <p>Roll until all the dice are the same. Click each die to hold it at its current value between rolls.</p>
+      <p>{tenzies ? winText : introText}</p>
       <div className="dice">
          {diceElements}
       </div>
