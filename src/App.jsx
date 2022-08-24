@@ -24,11 +24,16 @@ const App = () => {
    }
 
    function rollDice(id) {
-      setDice(prevState => {
-         return prevState.map(die => {
-            return !die.isHeld ? generateDie() : die
+      if(!tenzies) {
+         setDice(prevState => {
+            return prevState.map(die => {
+               return !die.isHeld ? generateDie() : die
+            })
          })
-      })
+      } else {
+         setTenzies(false)
+         setDice(allNewDice())
+      }
    }
 
    function holdDice(id) {
@@ -67,7 +72,10 @@ const App = () => {
       <div className="dice">
          {diceElements}
       </div>
-      <button className="roll-btn" onClick={rollDice}>
+      <button
+         className="roll-btn"
+         onClick={rollDice}
+      >
          {tenzies ? 'New Game' : 'Roll'}
       </button>
     </main>
