@@ -1,6 +1,7 @@
 import React from 'react'
 import Die from './Die'
 import { nanoid } from 'nanoid'
+import Confetti from 'react-confetti'
 
 const App = () => {
    const [dice, setDice] = React.useState(allNewDice)
@@ -60,13 +61,14 @@ const App = () => {
 
    return (
     <main>
-      <h1>Tenzies</h1>
+      {tenzies && <Confetti />}
+      <h1>{tenzies ? 'You Won!' : 'Tenzies'}</h1>
       <p>Roll until all the dice are the same. Click each die to hold it at its current value between rolls.</p>
       <div className="dice">
          {diceElements}
       </div>
       <button className="roll-btn" onClick={rollDice}>
-         Roll
+         {tenzies ? 'New Game' : 'Roll'}
       </button>
     </main>
    )
